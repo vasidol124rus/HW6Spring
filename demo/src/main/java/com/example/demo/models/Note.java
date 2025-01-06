@@ -1,31 +1,34 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
+/**
+ * Сущность заметки.
+ */
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "notes")
 public class Note {
-
+    /**
+     * Идентификатор.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
+    /**
+     * Заголовок.
+     */
     private String title;
-
-    @Column(nullable = false)
-    private String content;
-
-    @CreationTimestamp
-    private LocalDateTime createdDate;
+    /**
+     * Содержимое.
+     */
+    private String description;
+    /**
+     * Дата создания.
+     */
+    private LocalDateTime createDate;
 
 }
